@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='es'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name="viewport">
+        <title>Flask Project</title> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+            <header>
+                <h1>Calculadora</h1>
+            </header>
+
+            <div> 
+                <div>
+                    <h2>Calcular</h2>
+                    <form method='post' action="{{url_for('index')}}">
+                        <input type="number" name="num1" placeholder="Número 1">
+                        <input type="number" name="num2" placeholder="Número 2">
+                        <select name="operation">
+                            <option value="add">Suma</option>
+                            <option value="subtract">Resta</option>
+                            <option value="multiply">Multiplicación</option>
+                            <option value="divide">División</option>
+                        </select>
+
+                        <input type='submit' value='Calculate'>
+                         
+                    </form> 
+                    {% if result is not none %}
+                        <p>{{ result }}</p>
+                    {% endif %}
+                </div>
+
+            </div>
+
+    </body>
+    </html>
